@@ -9,5 +9,7 @@ The Collapsible Columns component allows you to expand or contract zones of your
 
 3. Choose a Label (the hardest part for some people) and the Object 
 
-4. Select the template in the image 
+4. Select the template in the image
+![Collapsible Columns](images\collapsible-columns.png)
+
 
