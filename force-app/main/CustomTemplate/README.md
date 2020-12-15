@@ -11,6 +11,6 @@ The Collapsible Columns component allows you to expand or contract zones of your
 
 4. Select the template in the image
 
-![Collapsible Columns](https://github.com/niets10/SFDX-solutions/blob/ebd693d1a7aa4cefb034b472d1c6687518d92d14/images%2Fcollapsible-columns.png)
+![Collapsible Columns](https://github.com/niets10/SFDX-solutions/blob/b03a7b8f8f7611132238836708411d8ec236e199/images%2Fcollapsible-columns.png)
 
 
