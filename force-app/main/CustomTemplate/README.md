@@ -1,6 +1,6 @@
 # Introduction
 The Collapsible Template component allows you to expand or contract zones of your page layout to focus on what really matters.
-![](images\collapsible-columns.gif)
+![Collapsible GIF](images\collapsible-columns.gif)
 
 # Development
 Got the idea from [this article](https://developer.salesforce.com/blogs/2018/08/all-about-custom-lightning-page-templates.html) but I decided to change the default button to a nicer one.
