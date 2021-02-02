@@ -1,6 +1,0 @@
-<aura:documentation>
-	<aura:description>Documentation</aura:description>
-	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
-		A Lightning Component with three collapsible columns
-	</aura:example>
-</aura:documentation>
