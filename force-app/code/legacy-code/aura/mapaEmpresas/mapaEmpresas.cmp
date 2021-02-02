@@ -1,0 +1,29 @@
+<aura:component implements="force:appHostable" controller="mapaEmpresas">
+    <!-- attributes -->
+    <aura:attribute name="mapMarkersData" type="Object"/>
+    <aura:attribute name="center" type="Object" />
+    <aura:attribute name="zoomLevel" type="Integer" default="7" />
+    <aura:attribute name="markersTitle" type="String"  default="Google Maps"/>
+    <aura:attribute name="showFooter" type="Boolean" default="true" />
+    <aura:attribute name="title" type="String" default="Google Maps"/>
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    
+    <!-- the map component -->
+    <aura:if isTrue="{!v.mapMarkersData.length > 0}" >
+        
+        <lightning:map
+                       mapMarkers="{!v.mapMarkersData}"
+                       center="{! v.center }"
+                       zoomLevel="{! v.zoomLevel }"
+                       markersTitle="{! v.markersTitle }"
+                       showFooter="{ !v.showFooter }" >
+        </lightning:map> 
+        <aura:set attribute="else">
+            <div class="slds-page-header" role="banner">
+                <p class="slds-text-heading--label">No geolocation coordinates found. Opportunities must have Site Location (Coord.) to be located on the map.</p>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

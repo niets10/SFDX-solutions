@@ -1,0 +1,55 @@
+<template>
+
+      
+
+
+    <lightning-layout>
+         <!-- ############### REPORTS SECTION ############### -->
+        <lightning-layout-item padding="around-small" class="navigation">
+            <div style="width: 320px;">
+                <lightning-vertical-navigation onselect={handleSelect}>
+                    <lightning-vertical-navigation-section label="Available Reports">
+        
+                        <lightning-input name="enter-search" type="search" placeholder="Search" onchange={handleChange}></lightning-input>
+                        <template for:each={reports} for:item="report">
+                            <lightning-vertical-navigation-item-icon label={report.Name} name={report.DeveloperName} key={report.Id} icon-name="utility:groups"></lightning-vertical-navigation-item-icon>
+                        </template>
+        
+        
+                        
+                    </lightning-vertical-navigation-section>
+                </lightning-vertical-navigation>
+            </div>  
+        </lightning-layout-item>
+
+        <!-- ############### FLOWS SECTION ############### -->
+        <template if:true={showFlowMenu}>
+            <lightning-layout-item padding="around-small" class="navigation">
+                <div style="width: 320px;">
+                    <lightning-vertical-navigation>
+                        <lightning-vertical-navigation-section label="Available Flows">
+                            
+                        <template if:true={existentFlows}>                        
+                            
+                            <template for:each={flows} for:item="flow">
+                                <lightning-vertical-navigation-item-icon label={flow} name={flow} key={flow} icon-name="action:flow"></lightning-vertical-navigation-item-icon>
+                            </template>
+            
+                        </template>
+
+                        <template if:false={existentFlows}>       
+                            <div class="slds-text-heading_small">
+                                There are not flows configured for this report :(
+                            </div>        
+                        </template>
+
+                            
+                        </lightning-vertical-navigation-section>
+                    </lightning-vertical-navigation>
+                </div>  
+            </lightning-layout-item>
+        </template>
+        
+    </lightning-layout>
+
+</template>

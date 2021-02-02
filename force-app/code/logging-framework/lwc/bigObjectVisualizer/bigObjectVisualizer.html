@@ -1,0 +1,45 @@
+<template>
+    
+    <!-- Main component for the Related List -->
+    <article class="slds-card slds-card_boundary">
+        <div class="slds-card__header slds-grid">
+            <!-- HEADER -->
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <lightning-card title='Logs' icon-name="standard:record">
+                    </lightning-card>
+                    <span class="slds-assistive-text">Team!</span>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Seguros Team">
+                        </a>
+                    </h2>
+                </div>
+            </header>
+        </div>
+        <!-- BODY -->
+        <template if:true={showTable}>
+            <!-- DATATABLE -->
+            <lightning-datatable
+                key-field="id"
+                data={records}
+                columns={columns}
+                hide-checkbox-column="true"
+                onrowaction={handleRowActions}
+                sorted-by={sortBy}
+                sorted-direction={sortDirection} 
+                onsort={handleSortdata}>
+                >
+            </lightning-datatable>
+                      
+            <!-- FOOTER -->
+            <footer class="slds-card__footer">
+                <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                    <span class="slds-assistive-text">Contacts</span>
+                </a>
+            </footer>
+        </template>
+    </article>
+
+</template>

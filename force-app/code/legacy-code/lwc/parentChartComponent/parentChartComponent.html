@@ -1,0 +1,5 @@
+<template>
+    <lightning-input label="Percentage" type="number" min="0" max="100"
+        value={porcentaje} onchange={handlePercentageChange}></lightning-input>
+    <c-chart-component percentage={porcentaje}></c-chart-component>    
+</template>

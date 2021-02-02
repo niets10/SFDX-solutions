@@ -1,0 +1,8 @@
+.container {
+    border: 1px solid black;
+}
+
+/*Don't hide elements in inside the modal but over the modal*/
+.slds-modal__content{
+    overflow: initial;
+}

@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,force:hasRecordId">
+    
+    <aura:attribute name="recordId" type="String" />
+    <lightning:card title="Display records">
+        <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Account">
+            
+            <lightning:outputField fieldName="Name"/>
+            
+        </lightning:recordViewForm>
+        
+        
+    </lightning:card>
+    
+    
+</aura:component>

@@ -1,0 +1,167 @@
+<aura:component controller="RetrieveArticles" implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="loadMyEvent" type="c:articleId"/>
+    <aura:attribute name="searchText" type="String" default=""/>
+    <aura:attribute name="articlesTotal" type="Article__c[]"/>
+    <aura:attribute name="articlesAdmin" type="Article__c[]"/>
+    <aura:attribute name="articlesApex" type="Article__c[]"/>
+    <aura:attribute name="articlesOther" type="Article__c[]"/>
+    
+    <!-- Search box -->
+    <lightning:input type="search" aura:id="nameFilter" onchange="{!c.handleNameFilterChange}" placeholder="Search" variant="label-hidden"/>
+    
+    <aura:if isTrue="{!v.articlesTotal.length > 0}">
+        <!-- First Section ADMIN-->
+        
+        <!-- Section Header -->
+        <aura:if isTrue="{!v.articlesAdmin.length > 0}">
+            
+            <div class="slds-section slds-is-open" aura:id="adminSection">
+                <h3 class="slds-section__title">
+                    <button aria-controls="adminList" class="slds-button slds-section__title-action">
+                        <span onclick="{!c.toggleSection}" data-auraId="adminSection">
+                            <lightning:icon iconName="utility:switch"
+                                            size="x-small"
+                                            class="slds-section__title-action-icon slds-button__icon_left"
+                                            alternativeText="button icon"/> 
+                        </span>
+                        <div onclick="{!c.toggleSection}" data-auraId="adminSection" style="width:100%">Admin</div>
+                    </button>
+                    
+                </h3>      
+                <!-- Section  Body -->
+                <table class="slds-table slds-table_cell-buffer slds-table_header-hidden">
+                    <thead class="slds-assistive-text">
+                    </thead>
+                    <tbody>
+                        <div class="slds-section__content" id="adminList">
+                            <aura:iteration items="{!v.articlesAdmin}" var="art">
+                                <tr class="slds-hint-parent slds-cell-wrap">
+                                    <th class="slds-cell-wrap" data-label="Admin article name" scope="row" style="width:400px;">           
+                                        <div title="Admin article">                                                                     
+                                            <a onclick="{!c.clickRecord}" data-value="{!art.Id}" tabindex="-1">{!art.Name}</a>                                   
+                                        </div> 
+                                    </th>
+                                </tr>
+                            </aura:iteration>      
+                        </div>
+                    </tbody>
+                </table>        
+            </div>
+            <aura:set attribute="else">
+                <table class="slds-table slds-table_cell-buffer slds-table_header-hidden">
+                    <thead class="slds-assistive-text">
+                    </thead>
+                    <tbody>
+                        <div class="slds-section__content" id="adminList">
+                            <aura:iteration items="{!v.articlesAdminFiltered}" var="art">
+                                <tr class="slds-hint-parent slds-cell-wrap">
+                                    <th class="slds-cell-wrap" data-label="Admin article name" scope="row" style="width:400px;">           
+                                        <div title="Admin article">                                                                     
+                                            <a onclick="{!c.clickRecord}" data-value="{!art.Id}" tabindex="-1">{!art.Name}</a>                                   
+                                        </div> 
+                                    </th>
+                                </tr>
+                            </aura:iteration>      
+                        </div>
+                    </tbody>
+                </table> 
+            </aura:set>
+        </aura:if>
+        
+        <!-- End of First Section -->
+        
+        <!-- Second Section APEX-->
+        <aura:if isTrue="{!v.articlesApex.length > 0}">
+            <div class="slds-section slds-is-open" aura:id="apexSection">
+                <h3 class="slds-section__title">
+                    <button aria-controls="apexList" class="slds-button slds-section__title-action">
+                        <span onclick="{!c.toggleSection}" data-auraId="apexSection">
+                            <lightning:icon iconName="utility:switch"
+                                            size="x-small"
+                                            class="slds-section__title-action-icon slds-button__icon_left"
+                                            alternativeText="button icon"/> 
+                        </span>
+                        <div onclick="{!c.toggleSection}" data-auraId="apexSection" style="width:100%">APEX</div>
+                    </button>
+                    
+                </h3>      
+                <!-- Section  Body -->
+                <table class="slds-table slds-table_cell-buffer slds-table_header-hidden">
+                    <thead class="slds-assistive-text">
+                    </thead>
+                    <tbody>
+                        <div class="slds-section__content" id="apexList">
+                            <aura:iteration items="{!v.articlesApex}" var="art">
+                                <tr class="slds-hint-parent">
+                                    <th class="slds-cell-wrap" data-label="APEX article name" scope="row" style="width:400px;">  
+                                        <div title="APEX article">                                                                     
+                                            <a onclick="{!c.clickRecord}" data-value="{!art.Id}" tabindex="-1">{!art.Name}</a>                                    
+                                        </div>                                
+                                    </th>
+                                </tr>
+                            </aura:iteration>      
+                        </div>
+                    </tbody>
+                </table>
+            </div>
+            <aura:set attribute="else">
+                <p class="no-results">Nothing to show.</p>
+            </aura:set>
+        </aura:if>    
+        <!-- End of Second Section -->
+        
+        <!-- Third Section -->
+        <aura:if isTrue="{!v.articlesOther.length > 0}">
+            <div class="slds-section slds-is-open" aura:id="otherSection">
+                <h3 class="slds-section__title">
+                    <button aria-controls="otherList" class="slds-button slds-section__title-action">
+                        <span onclick="{!c.toggleSection}" data-auraId="otherSection">
+                            <lightning:icon iconName="utility:switch"
+                                            size="x-small"
+                                            class="slds-section__title-action-icon slds-button__icon_left"
+                                            alternativeText="button icon"/> 
+                        </span>
+                        <div onclick="{!c.toggleSection}" data-auraId="otherSection" style="width:100%">Other</div>
+                    </button>
+                    
+                </h3>      
+                <!-- Section  Body -->
+                <table class="slds-table slds-table_cell-buffer slds-table_header-hidden">
+                    <thead class="slds-assistive-text">
+                    </thead>
+                    <tbody>
+                        <div class="slds-section__content" id="otherList">
+                            <aura:iteration items="{!v.articlesOther}" var="art">
+                                <tr class="slds-hint-parent">
+                                    <th class="slds-cell-wrap" data-label="Other article name" scope="row" style="width:400px;">           
+                                        <div title="Other article" >
+                                            <a onclick="{!c.clickRecord}" data-value="{!art.Id}" tabindex="-1">{!art.Name}</a>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </aura:iteration>      
+                        </div>
+                    </tbody>
+                </table>
+            </div>            
+        </aura:if>
+        <aura:set attribute="else">
+            Not articles to show!
+        </aura:set>
+    </aura:if>
+    
+    <!--    <aura:iteration items="{!v.articlesTotal}" var="art">
+        <tr class="slds-hint-parent slds-cell-wrap">
+            <th class="slds-cell-wrap" data-label="Admin article name" scope="row" style="width:400px;">           
+                <div title="Admin article">                                                                     
+                    <a onclick="{!c.clickRecord}" data-value="{!art.Id}" tabindex="-1">{!art.Name}</a>                                   
+                </div> 
+            </th>
+        </tr>
+    </aura:iteration>  -->
+    
+    <!-- End of Third Section -->
+    
+</aura:component>

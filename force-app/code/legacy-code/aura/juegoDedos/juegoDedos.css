@@ -1,0 +1,16 @@
+.THIS {
+
+}
+.THIS #divPrincipal {
+    
+    position: relative;
+    left: 10px;
+    top: 10px;
+    
+}
+.THIS #inputDedos {
+    
+    position: relative;
+    left: 10px;
+    width: 50px;
+}
