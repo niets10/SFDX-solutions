@@ -9,6 +9,10 @@ trigger Opportunity on Opportunity (before update, before insert, after insert, 
             PopulateLookups.lookupsOpps(trigger.new, trigger.oldMap);
         }
     }
+
+    if(trigger.isAfter && trigger.isUpdate){
+        OpportunityHandler.afterUpdateHandler(Trigger.new, Trigger.oldMap);
+    }
        
     
 }
