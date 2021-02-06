@@ -1,6 +1,0 @@
-({
-    showToast : function(component, event) {
-       
-    }
-    
-})

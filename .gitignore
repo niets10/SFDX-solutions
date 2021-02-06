@@ -12,6 +12,7 @@ config/
 manifest/
 scripts/
 salesforce-case-assignment/
+legacy-code/
 
 #Ignore docs
 .eslintignore

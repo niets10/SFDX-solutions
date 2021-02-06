@@ -1,9 +1,0 @@
-<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" controller="DeleteFilesController">
-
-    <lightning:navigation aura:id="nav" />
-    
-    <div class="slds-clearfix">
-        <lightning:button variant="brand" label="Delete File" title="Brand action" onclick="{! c.deleteAction }" class="slds-float_right"/>
-    </div>
-
-</aura:component>

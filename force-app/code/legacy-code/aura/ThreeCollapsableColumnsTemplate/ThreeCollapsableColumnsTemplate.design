@@ -1,7 +1,0 @@
-<design:component label="Three collapsible columns">
-    <flexipage:template >
-      <flexipage:region name="columnleft" defaultWidth="Medium" />
-      <flexipage:region name="columncentral" defaultWidth="Medium" />
-      <flexipage:region name="columnright" defaultWidth="Medium" />
-  </flexipage:template>
-</design:component>
