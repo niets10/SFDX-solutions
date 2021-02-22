@@ -17,8 +17,8 @@ Configure a Platform Event with any name that is relevant, in this case is Toast
 
 Create any fields that are relevant, in this case I have configured four fields to pass information to the Toast element that will be shown in the LWC:
 
-`Title__c` → Title of the toast; in a Toast element, the title is mandatory
-`Message__c` → Message of the toast; in a Toast element, the message is mandatory
+`Title__c` → Title of the toast; in a Toast element, the title is mandatory.
+`Message__c` → Message of the toast; in a Toast element, the message is mandatory.
 `Variant__c` → Appearance of the toast. Valid values are: info (default), success, warning, and error.
 `Mode__c` → How persistent the toast is. Valid values are: dismissible (default), remains visible until you click the close button or 3 seconds has elapsed, whichever comes first; pester, remains visible for 3 seconds and disappears automatically. No close button is provided; sticky, remains visible until you click the close button.
 
