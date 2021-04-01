@@ -56,10 +56,3 @@ Thumbs.db
 ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
-force-app/code/email-to-lead/classes/EmailToLead.cls
-force-app/code/email-to-lead/classes/Inheritance/Bytbil.cls
-force-app/code/email-to-lead/classes/Inheritance/Bytbil.cls-meta.xml
-force-app/code/email-to-lead/classes/Inheritance/WebPage.cls
-force-app/code/email-to-lead/classes/Inheritance/WebPage.cls-meta.xml
-force-app/code/email-to-lead/classes/Inheritance/WebPageHandler.cls
-force-app/code/email-to-lead/classes/Inheritance/WebPageHandler.cls-meta.xml
