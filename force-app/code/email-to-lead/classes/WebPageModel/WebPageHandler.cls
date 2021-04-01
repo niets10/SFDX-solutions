@@ -5,17 +5,14 @@ public class WebPageHandler {
 		String emailBody = email.plainTextBody;
         WebPage wp;
 	
-		if(emailBody.containsIgnoreCase('bytbil.com')){
- 
+		if(emailBody.containsIgnoreCase('bytbil.com')){ 
 			wp = new Bytbil(email, emailBody);            
 
 		}else if(emailBody.containsIgnoreCase('Wayke.se')){
+			wp = new Wayke(email, emailBody);
 
-			// processWayke(emailBody);    
-
-		}else if(emailBody.containsIgnoreCase('blocket.se')){
-   
-			// processBlocket(emailBody);
+		}else if(emailBody.containsIgnoreCase('blocket.se')){   
+			wp = new Blocket(email, emailBody); 
 		}
 	
         return wp;

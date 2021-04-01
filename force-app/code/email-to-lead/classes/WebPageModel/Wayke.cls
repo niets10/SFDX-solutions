@@ -1,8 +1,8 @@
-public class Bytbil extends WebPage {
-    
+public with sharing class Wayke {
+
     private String emailBody;
-    
-    public BytBil(Messaging.InboundEmail email, String emailBody){
+
+    public Wayke() {
         super(email);
         this.emailBody = emailBody;
     }

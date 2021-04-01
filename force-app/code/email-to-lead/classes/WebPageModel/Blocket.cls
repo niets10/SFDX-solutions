@@ -1,12 +1,12 @@
-public class Bytbil extends WebPage {
-    
+public with sharing class Blocket {
+
     private String emailBody;
-    
-    public BytBil(Messaging.InboundEmail email, String emailBody){
+
+    public Blocket() {
         super(email);
         this.emailBody = emailBody;
     }
-
+    
     /**
     * @description: Override the abstract method
     */
