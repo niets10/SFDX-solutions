@@ -10,8 +10,8 @@ public class HerokuCallout {
         Http http = new Http();
         HttpRequest request = new HttpRequest();
 
-        //request.setEndpoint('https://py-rest-api-sf.herokuapp.com/rest-api/heroes/?format=json');
-        request.setEndpoint('https://salesforce-case-releye.herokuapp.com/rest-api/heroes/?format=json');
+        request.setEndpoint('https://py-rest-api-sf.herokuapp.com/rest-api/heroes/?format=json');
+        // request.setEndpoint('https://salesforce-case-releye.herokuapp.com/rest-api/heroes/?format=json');
         request.setMethod('GET');
 
         HttpResponse response = http.send(request);
@@ -27,6 +27,24 @@ public class HerokuCallout {
             System.debug('Error ' + response.getStatusCode());
         }
 
+    }
+
+    public static void postHerokuHeroes(){
+        Http http = new Http();
+        HttpRequest request = new HttpRequest();
+
+        request.setEndpoint('https://py-rest-api-sf.herokuapp.com/rest-api/heroes/');
+        request.setMethod('POST');
+        request.setHeader('Content-Type', 'application/json;charset=UTF-8');
+        request.setBody('{ "name":"Hulk","alias" : "hk" }');
+
+        HttpResponse response = http.send(request);
+
+        if(response.getStatusCode() == 201){
+            System.debug('Succesfully created!');
+        }else{
+            System.debug('Response Status Code ' + response.getStatusCode());
+        }
     }
 
 }
